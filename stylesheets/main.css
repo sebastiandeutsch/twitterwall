@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+.clearfix {display:inline-block;}
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+* html .clearfix {height:1%;}
+.clearfix {display:block;}
+
+body {
+    font-size:14px;
+    font-family:Tahoma,Arial,sans-serif;
+    line-height:1.4;
+    color:black;
+	background: #fff url(../images/bc3-bg.jpg) top left no-repeat;
+	overflow:hidden;
+	margin-top:10px;
+}
+
+#copyright {
+	position:absolute;
+	top:50px;
+	left:50px;
+}
+
+a {
+	/* color:#AB2DD1; */
+	color:#b030d2;
+	font-weight:bold;
+}
+
+a:hover {
+	background:#AB2DD1;
+	color:#fff;
+}
+
+.container {
+	width:950px;
+	margin:0 auto 0 auto;
+}
+
+#toolbar {
+	padding:50px;
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+	background:#333;
+	font-size:20px;
+	color:#fff;
+}
+
+#navigation {
+	width:100%;
+	height:29px;
+	background: #fff url(../images/logo.png) top right no-repeat;
+	font-weight:bold;
+}
+
+#navigation ul {
+	padding:6px 0px 0px 19px; 
+}
+
+#navigation ul li {
+	float:left;
+	margin-right:20px;
+}
+
+#subnavigation {
+	width:100%;
+	height:29px;
+	background:#d3ecff;
+}
+
+#subnavigation ul {
+	padding:6px 0px 0px 19px; 
+}
+
+#subnavigation ul li {
+	float:left;
+	margin-right:30px;
+}
+
+ul#tweets li {
+	width:205px;
+	margin-right:20px;
+	margin-bottom:20px;
+	float:left;
+}
+
+ul#tweets li div.user {
+	margin-bottom:10px;
+}
+
+ul#tweets li div.user img {
+	float:left;
+	border:1px solid #aaa;
+	padding:1px;
+	margin-right:10px;
+}
+
+ul#tweets li div.user {
+	font-size:16px;
+}
+
+ul#tweets li div.content {
+	width:192px;
+	height:187px;
+	background: transparent url(../images/bubble_5.png) top left no-repeat;	
+	margin-bottom:10px;
+	overflow:hidden;
+}
+
+ul#tweets li div.bubble_0 {
+	background: transparent url(../images/bubble_0.png) top left no-repeat;	
+}
+
+ul#tweets li div.bubble_1 {
+	background: transparent url(../images/bubble_1.png) top left no-repeat;	
+}
+
+ul#tweets li div.bubble_2 {
+	background: transparent url(../images/bubble_2.png) top left no-repeat;	
+}
+
+ul#tweets li div.bubble_3 {
+	background: transparent url(../images/bubble_3.png) top left no-repeat;	
+}
+
+ul#tweets li div.bubble_4 {
+	background: transparent url(../images/bubble_4.png) top left no-repeat;	
+}
+
+ul#tweets li div.content p {
+	padding:10px;
+}
+
+ul#tweets li div.meta {
+	font-size:10px;
+}

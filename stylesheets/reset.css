@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+html, body,
+div, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dt, dd,
+ol, ul, li,
+fieldset, form, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+input, textarea, button {
+    margin:0;
+    padding:0;
+    border:0 none;
+    background-repeat:no-repeat;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight:normal;
+}
+ol, ul {
+    list-style-type:none;
+}
+table {
+    border-collapse:collapse;
+}
+caption, th, td {
+    text-align:left;
+    font-weight:normal;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content:"";
+}
+blockquote, q {
+    quotes:"" "";
+}
+a img {
+    border:0 none;
+}

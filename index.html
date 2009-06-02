@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Twitterize</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/main.css" media="screen, projection" />
+	<script type="text/javascript" src="javascripts/jquery-1.2.6.js"></script>
+</head>
+<body>
+	<div id="header">
+		<div class="container">
+		</div>
+	</div>
+	<div id="content">
+		<div class="container">
+			<ul id="tweets" class="clearfix">
+				
+			</ul>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="container">
+		</div>
+	</div>
+	<div id="copyright">
+		<img src="images/trend_o2_trans.png" />
+	</div>
+	<div id="toolbar">
+		<div>Next update in <span id="counter"></span> seconds</div>
+		<div>Current search <input id="search" value=""> <input id="manual_refresh" type="button" value="refresh"></div>
+		<div>Container width <input id="container_width" value="950">  <input id="set_container_width" type="button" value="set width"> </div>
+	</div>
+	<script>
+		toolbar_visible = false;
+		counter = 60;
+		//query_string = location.hash.substr(1);
+		query_string = "bcc3";
+		jQuery('#search').val(query_string);
+				
+		function relative_time(time_value) {
+			var values = time_value.split(" ");
+			time_value = values[4] + ', ' + values[1] + " " + values[2] + " " + values[3];
+			return time_value;
+		}
+		
+		function update_tweets(query_string) {
+			jQuery.ajax({
+		        url: 'http://search.twitter.com/search.json?rpp=100&q=' + query_string,
+		        dataType: 'jsonp',
+		        success: function (data) {
+					jQuery('#tweets').empty();
+					
+		            twitter_count = data.results.length;
+					var counter = 0;
+					for(var i in data.results) {
+						var text = data.results[i].text.replace(/http:\/\/(\S+)/, "<a href=\"http://$1\">http://$1</a>");
+						text = text.replace(/@(\S+)/, "<a href=\"http://twitter.com/$1\">@$1</a>");
+						
+						var el = jQuery('<li><div class="content bubble_' + counter + '"><p>' + text + '</p></div><div class="user"><img src="' + data.results[i].profile_image_url + '" width="48" height="48" /> <a href="http://twitter.com/' + data.results[i].from_user + '">' + data.results[i].from_user + '</a></div></li>');
+						jQuery('#tweets').append(el);
+						counter++;
+					}
+		        }
+		    });
+		}
+		
+		function update_page() {
+			jQuery('#counter').text(counter);
+			
+			counter--;
+			
+			if(counter < 0) {
+				update_tweets(jQuery('#search').val());
+				counter = 60;
+			}
+		}
+		
+		jQuery(function() {
+			jQuery(document).keyup(function(e) {
+				// alert(e.keyCode);
+				
+				if (e.keyCode == 18) { // 'alt key'
+					toolbar_visible = !toolbar_visible;
+					if(toolbar_visible) {
+						jQuery('#toolbar').show();
+					} else {
+						jQuery('#toolbar').hide();
+					}
+				}
+			});
+			
+			jQuery('#manual_refresh').click(function() {
+				counter = 60;
+				update_tweets(jQuery('#search').val());
+			});
+
+			jQuery('#set_container_width').click(function() {
+				var new_width = jQuery('#container_width').val() + "px";
+				jQuery('.container').css('width', new_width);
+			});
+
+			
+			// Hook on twitter search api
+			update_tweets(jQuery('#search').val());
+
+			var t = setInterval(function() {
+				// do it again
+				update_page();
+			}, 1000);
+		});
+	</script>
+</body>
+</html>
