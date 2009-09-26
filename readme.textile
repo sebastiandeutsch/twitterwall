@@ -1,12 +1,12 @@
-h1. TWITTERWALL
+h1. Twitterwall
 
-Is a twitterwall that I created for the barcampcologne3. It just uses html + javascript, so no server language like PHP or Ruby is required. Feel free to fork, branch, merge, whatever.
+Is a twitterwall that I created for the barcampcologne3. It just uses html + javascript, so *no* server language like PHP or Ruby is required. Feel free to fork, branch, merge, whatever.
 
-h1. INSTALL
+h1. Install
 
 Get it from github through git or download. Start index.html with browser.
 
-h1. CONFIGURATION
+h1. Configuration
 
 Edit the index.html and change the initial keyword for
 
@@ -14,11 +14,11 @@ Edit the index.html and change the initial keyword for
 query_string = "bcc3";
 </pre>
 
-h1. USAGE
+h1. Usage
 
 Press the ALT-key for a popup menu where you can configure the searchquery and the width of the container (to adjust size realtime for beamers).
 
-h1. COPYRIGHT
+h1. Copyright
 
 All code is © 2009, "9elements":http://9elements.com and is released under the MIT License.
 Feel free to email us with any questions or feedback.
