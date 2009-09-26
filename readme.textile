@@ -18,6 +18,10 @@ h1. Usage
 
 Press the ALT-key for a popup menu where you can configure the searchquery and the width of the container (to adjust size realtime for beamers).
 
+h1. Fullscreen?
+
+On M$ systems any FireFox Plugin will do the job. For OSX I recommend "Shiira":http://shiira.jp/en.php.
+
 h1. Copyright
 
 All code is © 2009, "9elements":http://9elements.com and is released under the MIT License.
