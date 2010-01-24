@@ -48,7 +48,7 @@
 		
 		function update_tweets(query_string) {
 			jQuery.ajax({
-		        url: 'http://search.twitter.com/search.json?rpp=100&q=' + query_string,
+		        url: 'http://search.twitter.com/search.json?rpp=100&q=' + encodeURIComponent(query_string),
 		        dataType: 'jsonp',
 		        success: function (data) {
 					jQuery('#tweets').empty();
